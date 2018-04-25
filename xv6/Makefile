@@ -197,7 +197,6 @@ UPROGS=\
 	_sh\
 	_stressfs\
 	_usertests\
-	# _hello\
 	_wc\
 	_zombie\
 

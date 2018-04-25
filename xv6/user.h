@@ -33,10 +33,10 @@ struct rtcdate;
 #define SIGUSR1 30
 #define SIGUSR2 31
 
-#define WIFEXITED(status) (status & 0xFF)? 0: 1
-#define WEXITSTATUS(status) (status >> 8)
-#define WIFSIGNALED(status) (status & 0xFF) == 0177
-#define WTERMSIG(status) (status >> 8)
+#define WIFEXITED(status) status & 0xFF? 0: 1
+#define WEXITSTATUS(status) status >> 8
+#define WIFSIGNALED(status) status & 0xFF == 0177
+#define WTERMSIG(status) status >> 8
 
 // system calls
 int fork(void);
@@ -48,7 +48,7 @@ int pipe(int*);
 int write(int, void*, int);
 int read(int, void*, int);
 int close(int);
-int kill(int, int);
+int kill(int);
 int exec(char*, char**);
 int open(char*, int);
 int mknod(char*, short, short);
